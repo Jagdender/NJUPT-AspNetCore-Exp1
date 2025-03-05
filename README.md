@@ -20,10 +20,12 @@ dotnet publish -c Release -r win-x64 --self-contained true /p:PublishAot=true -o
 `-o` 参数表示输出目录  
 `-r` 参数表示目标平台  
 可用的选项包括：
-- `linux-x64`
+- `win-x86`
 - `win-x64`
-- `osx-x64`
-- `linux-arm`
-- `linux-arm64`
 - `win-arm`
 - `win-arm64`
+- `osx-x64`
+- `osx-arm64`
+- `linux-x64`
+- `linux-arm`
+- `linux-arm64`
