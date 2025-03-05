@@ -45,3 +45,12 @@ public readonly record struct Party(long Id, string Topic, string Location, Date
         stream.Write(Encoding.UTF8.GetBytes(content));
     }
 }
+
+public static class PartiesExtensions
+{
+    public static Party? Find(this Party[] parties, long id)
+    {
+        int index = Array.FindIndex(parties, party => party.Id == id);
+        return index <= -1 ? null : parties[index];
+    }
+}
