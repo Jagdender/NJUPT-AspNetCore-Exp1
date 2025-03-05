@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35806.99 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NJUPT-AspNetCore-Exp1", "NJUPT-AspNetCore-Exp1.csproj", "{52FCBEDE-6516-48B5-8A0D-45B2D4778FAE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52FCBEDE-6516-48B5-8A0D-45B2D4778FAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52FCBEDE-6516-48B5-8A0D-45B2D4778FAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52FCBEDE-6516-48B5-8A0D-45B2D4778FAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52FCBEDE-6516-48B5-8A0D-45B2D4778FAE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EF1D92B5-BF30-4877-AF41-3AFFE62AE222}
+	EndGlobalSection
+EndGlobal

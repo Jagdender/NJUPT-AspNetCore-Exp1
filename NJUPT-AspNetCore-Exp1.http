@@ -1,0 +1,11 @@
+@NJUPT_AspNetCore_Exp1_HostAddress = http://localhost:5162
+
+GET {{NJUPT_AspNetCore_Exp1_HostAddress}}/todos/
+Accept: application/json
+
+###
+
+GET {{NJUPT_AspNetCore_Exp1_HostAddress}}/todos/1
+Accept: application/json
+
+###
