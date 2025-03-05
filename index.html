@@ -31,8 +31,8 @@
                 <button type="button" class="btn btn-primary" onclick="check()">Query</button>
             </div>
             <div class="col-auto">
-                <button type="button" class="btn btn-secondary" onclick="add()" data-bs-toggle="collapse"
-                    data-bs-target="#form">Query</button>
+                <button type="button" class="btn btn-success" onclick="add()" data-bs-toggle="collapse"
+                    data-bs-target="#form">Add</button>
             </div>
         </div>
 
@@ -90,6 +90,8 @@
 
         async function check() {
             const id = document.getElementById('id').value;
+
+            blockAnimation();
             if (id) {
                 await getParty(id);
             } else {
@@ -122,9 +124,10 @@
         }
 
         async function deleteParty(id) {
+            blockAnimation();
             loading();
             await fetch('Party/' + id, { method: 'DELETE' });
-            remove(id);
+            remove(id)
             loaded();
         }
 
@@ -135,11 +138,11 @@
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: {
+                body: JSON.stringify({
                     topic: topic,
                     location: location,
                     dateTime: dateTime
-                }
+                })
             })
                 .then(response => response.json())
                 .then(data => {
@@ -185,7 +188,7 @@
                             <td>${party.location}</td>
                             <td>${party.dateTime}</td>
                             <td>
-                                <button type="button" class="btn btn-sm btn-danger mx-1" onclick="deleteParty(${party.id})">
+                                <button type="button" class="btn btn-sm btn-danger mx-1" onclick="deleteParty(${party.id})" data-bs-toggle="collapse" data-bs-target="#form">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                         <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
                                         <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
@@ -200,6 +203,19 @@
                             </td>
                         `;
             document.getElementById('content').appendChild(tr);
+        }
+
+
+
+
+        function blockAnimation() {
+            const card = document.getElementsByClassName('card')[0];
+            const button = card.getElementsByTagName('button')[0];
+            const idInput = card.getElementsByTagName('input')[1]
+
+            if (idInput.parentElement.style.display == 'none' && button.classList.contains('collapsed')) {
+                card.parentElement.classList.value = 'collapse show';
+            }
         }
 
         function edit(id, topic, location, dateTime) {
@@ -224,6 +240,7 @@
             title.textContent = 'Edit Party';
         }
 
+
         function add() {
             const card = document.getElementsByClassName('card')[0];
             const button = card.getElementsByTagName('button')[0];
@@ -234,6 +251,7 @@
 
             const inputs = card.getElementsByTagName('input')
             inputs[0].parentElement.style.display = 'none';
+            inputs[0].value = 0;
             inputs[1].value = '';
             inputs[2].value = '';
             inputs[3].value = '';

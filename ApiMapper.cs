@@ -55,10 +55,10 @@ public static class ApiMapper
         );
 
         api.MapGet(
-            "/Party",
+            "/",
             () =>
                 File.Exists(html)
-                    ? Results.Text(File.ReadAllText(html), "text/html")
+                    ? Results.Extensions.Html(File.ReadAllText(html))
                     : Results.NotFound()
         );
 
